@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0b0f;--bg2:#14141c;--fg:#f4f4f8;--dim:#a6a6b8;--accent:#ff4d6d;--accent2:#ffb03a;--card:#1b1b26}
+:root{--bg:#0b0b0f;--fg:#f4f4f8;--dim:#a6a6b8;--accent:#ff4d6d;--accent2:#ffb03a;--card:#1b1b26}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font-family:"IBM Plex Sans Thai",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -43,8 +43,7 @@ h2{font-size:1.5rem;font-weight:600;margin-bottom:8px}
 .card:hover .play{opacity:1}
 .play svg{width:54px;height:54px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
 .card .body{padding:16px 18px}
-.card .kind{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);font-weight:600}
-.card .t{font-weight:600;margin-top:6px;font-size:1.02rem}
+.card .t{font-weight:600;font-size:1.02rem}
 footer{border-top:1px solid #1e1e2e;padding:34px 0;color:var(--dim);font-size:.9rem;text-align:center}
 .socials{display:flex;gap:16px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
 .socials a{color:var(--dim);border-bottom:1px solid transparent}
@@ -57,7 +56,6 @@ footer{border-top:1px solid #1e1e2e;padding:34px 0;color:var(--dim);font-size:.9
     <div class="logo">AERIS<span>·</span>MUSIC</div>
     <a class="btn btn-ghost" href="https://www.youtube.com/@aerismusicth?sub_confirmation=1" target="_blank" rel="noopener">ติดตามช่อง</a>
   </header>
-
   <div class="hero">
     <h1>เพลงไทย<em>ต้นฉบับ</em><br>จากใจถึงใจ</h1>
     <p>AERIS Music — เพลงไทยที่แต่งและร้องเอง เนื้อเพลงจริงใจ ฟังได้ทุกที่ทุกเวลา</p>
@@ -67,26 +65,48 @@ footer{border-top:1px solid #1e1e2e;padding:34px 0;color:var(--dim);font-size:.9
     </div>
   </div>
 </div>
-
 <section id="music" class="wrap">
   <h2>ผลงานล่าสุด</h2>
-  <p class="sub">เพลงเต็ม คาราโอเกะ และคลิปสั้น</p>
+  <p class="sub">เพลงไทยต้นฉบับจาก AERIS Music</p>
   <div class="grid">
+    <a class="card" href="https://youtu.be/ROXXhBitMpA" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/ROXXhBitMpA/hqdefault.jpg" alt="รักที่ไม่มีวันจบ (ท่อนที่ 2) #เพลงไทย #Shorts" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">รักที่ไม่มีวันจบ (ท่อนที่ 2) #เพลงไทย #Shorts</div></div>
+    </a>
+    <a class="card" href="https://youtu.be/l7vR7B9nYxY" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/l7vR7B9nYxY/hqdefault.jpg" alt="รักที่ไม่มีวันจบ (ท่อนที่ 1) #เพลงไทย #Shorts" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">รักที่ไม่มีวันจบ (ท่อนที่ 1) #เพลงไทย #Shorts</div></div>
+    </a>
+    <a class="card" href="https://youtu.be/51EuOXD3HPA" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/51EuOXD3HPA/hqdefault.jpg" alt="คิดถึงเธอทุกคืน (ท่อนที่ 1) #เพลงไทย #Shorts" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">คิดถึงเธอทุกคืน (ท่อนที่ 1) #เพลงไทย #Shorts</div></div>
+    </a>
+    <a class="card" href="https://youtu.be/ohmKsjI5Sq8" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/ohmKsjI5Sq8/hqdefault.jpg" alt="รักที่ไม่มีวันจบ (คาราโอเกะ) ร้องตามได้" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">รักที่ไม่มีวันจบ (คาราโอเกะ) ร้องตามได้</div></div>
+    </a>
+    <a class="card" href="https://youtu.be/SZO66B-RIIQ" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/SZO66B-RIIQ/hqdefault.jpg" alt="รักที่ไม่มีวันจบ — เพลงอบอุ่น ฟังแล้วใจนุ่ม" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">รักที่ไม่มีวันจบ — เพลงอบอุ่น ฟังแล้วใจนุ่ม</div></div>
+    </a>
+    <a class="card" href="https://youtu.be/rmlCjP4wvUI" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/rmlCjP4wvUI/hqdefault.jpg" alt="รักที่ไม่มีวันจบ (ท่อนที่ 3) #เพลงไทย #Shorts" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">รักที่ไม่มีวันจบ (ท่อนที่ 3) #เพลงไทย #Shorts</div></div>
+    </a>
     <a class="card" href="https://youtu.be/ASuxGEvJBlw" target="_blank" rel="noopener">
-      <div class="thumb"><img src="https://i.ytimg.com/vi/ASuxGEvJBlw/hqdefault.jpg" alt="เพลงเต็ม"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
-      <div class="body"><div class="kind">Full song</div><div class="t">คิดถึงเธอทุกคืน — เพลงเต็ม</div></div>
+      <div class="thumb"><img src="https://i.ytimg.com/vi/ASuxGEvJBlw/hqdefault.jpg" alt="คนดีที่จากไป — เพลงเศร้า ที่เข้าใจความเสียใจ" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">คนดีที่จากไป — เพลงเศร้า ที่เข้าใจความเสียใจ</div></div>
     </a>
     <a class="card" href="https://youtu.be/SWS1vJJgkow" target="_blank" rel="noopener">
-      <div class="thumb"><img src="https://i.ytimg.com/vi/SWS1vJJgkow/hqdefault.jpg" alt="คาราโอเกะ"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
-      <div class="body"><div class="kind">Karaoke</div><div class="t">คิดถึงเธอทุกคืน — คาราโอเกะ</div></div>
+      <div class="thumb"><img src="https://i.ytimg.com/vi/SWS1vJJgkow/hqdefault.jpg" alt="คนดีที่จากไป (คาราโอเกะ) — ร้องตามได้" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">คนดีที่จากไป (คาราโอเกะ) — ร้องตามได้</div></div>
     </a>
-    <a class="card" href="https://youtu.be/ANwgi7J_ras" target="_blank" rel="noopener">
-      <div class="thumb"><img src="https://i.ytimg.com/vi/ANwgi7J_ras/hqdefault.jpg" alt="Shorts"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
-      <div class="body"><div class="kind">Shorts</div><div class="t">ฮุกเพลง — คลิปสั้น</div></div>
+    <a class="card" href="https://youtu.be/CXRH7sW6Gcw" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/CXRH7sW6Gcw/hqdefault.jpg" alt="คนดีที่จากไป (ท่อนที่ 3) #01 — เพลงไทย #Shorts" loading="lazy"><div class="play"><svg viewBox="0 0 68 48" fill="#fff"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.5 8.5 0 0 0-6 6A89 89 0 0 0 0 24a89 89 0 0 0 1.5 16.3 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.5 8.5 0 0 0 6-6A89 89 0 0 0 68 24a89 89 0 0 0-1.5-16.3zM27 34V14l18 10z"/></svg></div></div>
+      <div class="body"><div class="t">คนดีที่จากไป (ท่อนที่ 3) #01 — เพลงไทย #Shorts</div></div>
     </a>
   </div>
 </section>
-
 <footer>
   <div class="socials">
     <a href="https://www.youtube.com/@aerismusicth" target="_blank" rel="noopener">YouTube</a>
