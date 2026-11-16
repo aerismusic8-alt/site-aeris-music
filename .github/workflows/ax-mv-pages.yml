@@ -15,6 +15,15 @@ on:
     # After each daily-release tick (08/14/20 UTC) has had time to finish.
     - cron: '40 9,15,21 * * *'
   workflow_dispatch:
+    inputs:
+      slug:
+        description: "Publish only this song slug (blank = every MV)"
+        required: false
+        default: ""
+      force:
+        description: "Rebuild even when the page already exists"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,9 +60,14 @@ jobs:
           MV_PAGES_DIR: ${{ github.workspace }}/site
           MV_SOURCE_ROOT: ${{ github.workspace }}/drive/music938-1
           AX_GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ github.event.inputs.slug }}
+          FORCE: ${{ github.event.inputs.force }}
         run: |
           set -euo pipefail
           cd "$GITHUB_WORKSPACE/site"
           git config user.name  "ax-mv-pages"
           git config user.email "ax-mv-pages@users.noreply.github.com"
-          python3 "$GITHUB_WORKSPACE/drive/ops/mv_page.py" --all
+          args=(--all)
+          if [ -n "${SLUG:-}" ]; then args=("$SLUG"); fi
+          if [ "${FORCE:-}" = "true" ]; then args+=(--force); fi
+          python3 "$GITHUB_WORKSPACE/drive/ops/mv_page.py" "${args[@]}"
