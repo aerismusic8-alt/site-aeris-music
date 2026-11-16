@@ -1,0 +1,59 @@
+name: AX MV Pages
+
+# Rebuilds a durable watch page for every music video, from the public media-938
+# release, so a new MV gets a permanent link (GitHub Pages) with no manual step and
+# no cross-repo secret: this workflow lives in the Pages repo and pushes with that
+# repo's own GITHUB_TOKEN.
+#
+# The publisher (`ops/mv_page.py` in aeris-drive-automation) reads the song's lyric
+# header for its title/mood, fetches the film from the release when it is not on
+# disk, and skips a song whose page already exists — so a run only does real work
+# when a new MV has shipped.
+
+on:
+  schedule:
+    # After each daily-release tick (08/14/20 UTC) has had time to finish.
+    - cron: '40 9,15,21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ax-mv-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Pages site
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      # The publisher and the lyric headers live in the music repo, which is public.
+      - name: Checkout the music rail
+        uses: actions/checkout@v4
+        with:
+          repository: aerismusic8-alt/aeris-drive-automation
+          path: drive
+
+      - name: Install ffmpeg + the two Python deps the publisher needs
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install -q --disable-pip-version-check numpy pillow
+
+      - name: Publish every MV as a watch page
+        env:
+          MV_PAGES_DIR: ${{ github.workspace }}/site
+          MV_SOURCE_ROOT: ${{ github.workspace }}/drive/music938-1
+          AX_GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE/site"
+          git config user.name  "ax-mv-pages"
+          git config user.email "ax-mv-pages@users.noreply.github.com"
+          python3 "$GITHUB_WORKSPACE/drive/ops/mv_page.py" --all
