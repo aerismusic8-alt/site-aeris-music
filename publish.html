@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AERIS Music — Publisher</title>
+<style>
+  :root{color-scheme:light dark}
+  body{max-width:40rem;margin:0 auto;padding:2.4rem 1.2rem 4rem;
+       font:16px/1.7 -apple-system,"Segoe UI","Noto Sans Thai",sans-serif}
+  h1{font-size:1.4rem;margin-bottom:.2rem}
+  h2{font-size:1.05rem;margin-top:2rem}
+  .muted{opacity:.7;font-size:.92rem}
+  .btn{display:inline-block;margin:1rem 0;padding:.8rem 1.5rem;border-radius:.6rem;
+       background:#fe2c55;color:#fff;text-decoration:none;font-weight:600}
+  ol{padding-left:1.3rem}
+  code{background:rgba(128,128,128,.15);padding:.1rem .35rem;border-radius:.3rem}
+</style>
+</head>
+<body>
+<h1>เพลงส้นทีนไรเนี่ย — Publisher</h1>
+<p class="muted">เครื่องมือเผยแพร่คลิปเพลงของช่องขึ้นบัญชี TikTok ของช่องเอง · first-party publisher</p>
+
+<h2>1. เชื่อมต่อบัญชี</h2>
+<p>กดปุ่มนี้เพื่ออนุญาตให้เครื่องมือของช่องโพสต์คลิปของเราเอง (สิทธิ์ <code>video.publish</code> เท่านั้น):</p>
+<a class="btn" id="auth" href="#">เชื่อมต่อบัญชี TikTok</a>
+<p class="muted" id="urlnote">หลังอนุญาต ระบบจะพากลับมาที่หน้ายืนยันของช่องนี้</p>
+
+<h2>2. สิ่งที่เครื่องมือทำ</h2>
+<ol>
+  <li>อ่านไฟล์คลิปที่เราผลิตเองจากเครื่องของเราเอง</li>
+  <li>ส่งขึ้นบัญชี TikTok ของช่องผ่าน Content Posting API</li>
+  <li>บันทึกผลลัพธ์ (สำเร็จ/ล้มเหลว) ไว้ในบันทึกของช่อง</li>
+</ol>
+<p class="muted">ไม่มีผู้ใช้ภายนอก ไม่มีการอ่านข้อมูลผู้ชม ไม่มีการคอมเมนต์ ติดตาม หรือส่งข้อความแทนใคร</p>
+
+<h2>3> เอกสาร</h2>
+<p><a href="privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="terms.html">ข้อกำหนดการให้บริการ</a> · <a href="index.html">หน้าแรกของช่อง</a></p>
+
+<script>
+  const CLIENT_KEY = "aw189irz57uq47b9";
+  const REDIRECT = location.origin + "/site-aeris-music/tiktok-callback.html";
+  const SCOPE = "user.info.basic,video.publish";
+  const state = Math.random().toString(36).slice(2, 10);
+  sessionStorage.setItem("tt_state", state);
+  document.getElementById("auth").href =
+    "https://www.tiktok.com/v2/auth/authorize/?client_key=" + encodeURIComponent(CLIENT_KEY) +
+    "&scope=" + encodeURIComponent(SCOPE) +
+    "&response_type=code&redirect_uri=" + encodeURIComponent(REDIRECT) +
+    "&state=" + state;
+</script>
+</body>
+</html>
