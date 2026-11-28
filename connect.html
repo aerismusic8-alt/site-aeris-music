@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เชื่อมต่อ TikTok — AERIS Music</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font-family: "Noto Sans Thai", system-ui, sans-serif;
+         background: #14080f; color: #f3e9ee; display: grid; place-items: center;
+         min-height: 100vh; }
+  .card { width: min(560px, 92vw); background: #1e1016; border: 1px solid #3a2029;
+          border-radius: 18px; padding: 32px 28px; box-shadow: 0 20px 60px #0008; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  p  { color: #b9a2ab; line-height: 1.7; font-size: 15px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .logo { width: 40px; height: 40px; border-radius: 12px;
+          background: linear-gradient(135deg,#f4a6c0,#7a3b52); }
+  button { width: 100%; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer;
+           border: 0; border-radius: 12px; background: #fe2c55; color: #fff; }
+  button:hover { background: #e0244b; }
+  .meta { font-size: 12px; color: #7d6670; margin-top: 18px; word-break: break-all; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand"><div class="logo"></div><strong>AERIS Music · เพลงส้นทีนไรเนี่ย</strong></div>
+  <h1>เชื่อมต่อบัญชี TikTok</h1>
+  <p>หน้านี้ใช้สำหรับเจ้าของช่องเท่านั้น กดปุ่มด้านล่างเพื่ออนุญาตให้ผู้เผยแพร่ในบ้าน
+     อัปโหลดและโพสต์วิดีโอเพลงของช่องเราผ่าน TikTok Content Posting API</p>
+  <button id="go">เชื่อมต่อ TikTok</button>
+  <div class="meta">สิทธิ์ที่ขอ: user.info.basic, video.publish, video.upload</div>
+</div>
+<script>
+  const CLIENT_KEY = "aw189irz57uq47b9";
+  const REDIRECT   = "https://aerismusic8-alt.github.io/site-aeris-music/callback.html";
+  const SCOPE      = "user.info.basic,video.publish,video.upload";
+  document.getElementById("go").onclick = () => {
+    const state = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+    sessionStorage.setItem("tt_state", state);
+    const url = "https://www.tiktok.com/v2/auth/authorize/?" + new URLSearchParams({
+      client_key: CLIENT_KEY, scope: SCOPE, response_type: "code",
+      redirect_uri: REDIRECT, state
+    });
+    location.href = url;
+  };
+</script>
+</body>
+</html>

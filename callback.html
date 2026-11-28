@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เชื่อมต่อสำเร็จ — AERIS Music</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font-family: "Noto Sans Thai", system-ui, sans-serif;
+         background: #14080f; color: #f3e9ee; display: grid; place-items: center;
+         min-height: 100vh; }
+  .card { width: min(620px, 92vw); background: #1e1016; border: 1px solid #3a2029;
+          border-radius: 18px; padding: 32px 28px; box-shadow: 0 20px 60px #0008; }
+  h1 { font-size: 22px; margin: 0 0 10px; }
+  p  { color: #b9a2ab; line-height: 1.7; font-size: 15px; }
+  code { display: block; margin-top: 10px; padding: 14px; border-radius: 10px;
+         background: #120a0e; border: 1px solid #3a2029; color: #ffd9e3;
+         font-size: 13px; word-break: break-all; }
+  .ok { color: #4ade80; font-weight: 600; }
+  .bad { color: #fb7185; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1 id="title">กำลังตรวจสอบการเชื่อมต่อ…</h1>
+  <p id="msg"></p>
+  <code id="detail"></code>
+</div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const code = q.get("code"), err = q.get("error"), state = q.get("state");
+  const saved = sessionStorage.getItem("tt_state");
+  const title = document.getElementById("title");
+  const msg = document.getElementById("msg");
+  const detail = document.getElementById("detail");
+
+  if (err) {
+    title.className = "bad";
+    title.textContent = "การเชื่อมต่อถูกยกเลิก";
+    msg.textContent = "TikTok ส่งข้อผิดพลาดกลับมา: " + err;
+    detail.textContent = q.get("error_description") || "";
+  } else if (!code) {
+    title.className = "bad";
+    title.textContent = "ไม่พบรหัสอนุญาต";
+    msg.textContent = "เปิดหน้านี้จากขั้นตอนเชื่อมต่อ TikTok เท่านั้น";
+  } else {
+    title.className = "ok";
+    title.textContent = "เชื่อมต่อบัญชีสำเร็จ";
+    msg.textContent = "ได้รับ authorization code แล้ว ผู้เผยแพร่ในบ้านจะนำรหัสนี้ไปแลกเป็นโทเคน"
+                    + " เพื่ออัปโหลดและโพสต์วิดีโอเพลงของช่องเราต่อไป";
+    detail.textContent = "code=" + code + "\nstate=" + (state || "") + (saved === state ? " (ตรวจสอบ state แล้ว)" : "");
+  }
+</script>
+</body>
+</html>
