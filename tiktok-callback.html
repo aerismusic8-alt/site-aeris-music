@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok authorization — AERIS Music</title>
+<style>body{max-width:34rem;margin:0 auto;padding:2.5rem 1.2rem;
+font:16px/1.7 -apple-system,"Segoe UI","Noto Sans Thai",sans-serif}
+code{display:block;word-break:break-all;background:rgba(128,128,128,.14);
+padding:.9rem;border-radius:.5rem;margin:.8rem 0;font-size:.95rem}
+.muted{opacity:.7;font-size:.9rem}</style></head>
+<body>
+<h1>ได้รับสิทธิ์แล้ว</h1>
+<p class="muted">หน้านี้แสดงรหัสที่ TikTok ส่งกลับมา เพื่อนำไปแลกเป็นโทเคนบนเครื่องของเรา
+รหัสมีอายุสั้น (ประมาณ 10 นาที)</p>
+<p>รหัส (code):</p>
+<code id="code">—</code>
+<p id="err" class="muted"></p>
+<p class="muted">ส่งภาพหน้านี้หรือคัดลอกรหัสให้ผู้ดูแลระบบของช่อง จากนั้นปิดหน้านี้ได้เลย</p>
+<script>
+  const p = new URLSearchParams(location.search);
+  const c = p.get("code"), e = p.get("error"), d = p.get("error_description");
+  document.getElementById("code").textContent = c || "—";
+  if (e) document.getElementById("err").textContent = "TikTok: " + e + (d ? " — " + d : "");
+  if (p.get("state")) document.title = "TikTok authorization — " + p.get("state");
+</script>
+</body></html>
